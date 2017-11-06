@@ -1,0 +1,37 @@
+
+
+
+<div class="panel panel-default">
+	<div class="panel-body">
+		<!-- <div class="form-check">
+  			<label class="form-check-label pull-left">
+    			<input class="form-check-input" type="checkbox" [checked]="todo.status === 'checked'" (change)="onAddStatus()">
+    				<span [ngClass]="{done: todo.status === 'checked'}">{{ todo.todolist }}</span>
+  			</label>
+		</div> -->
+		
+        <div class="checkbox">
+            <label style="font-size: 1.5em" class="form-check-label pull-left">
+                <input type="checkbox" value="" [checked]="todo.status === 'checked'" (change)="onAddStatus()">
+                <span class="cr" [ngClass]="{done: todo.status === 'checked'}"><i class="cr-icon fa fa-check"></i></span>
+                <span [ngClass]="{done: todo.status === 'checked'}">{{ todo.todolist }}</span>
+            </label>
+        </div>
+
+		<div class="form-check pull-right">
+			<div *ngIf="editClicked">
+				<div class="form-inline">
+				    <div class="form-group mx-sm-3">
+					<input type="text" class="form-control" name="" [(ngModel)]="TodoEditField">
+				</div>
+				  	<a href="#"  class="btn btn-primary" (click)="onUpdateTodo()">Save</a>
+	  				<a href="#"  class="btn btn-default" (click)="onCancel()">Cancel</a>
+				</div>
+			</div>
+			<div *ngIf="!editClicked">
+	  			<a href="#" class="btn btn-success" (click)="onEditTodo()">Edit</a>
+	  			<a href="#"  class="btn btn-danger" (click)="onDelete()">Delete</a>
+  			</div>
+		</div>
+	</div>
+</div>
